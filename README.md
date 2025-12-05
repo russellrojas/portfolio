@@ -17,10 +17,11 @@ Ce dépôt contient mon site web personnel, présentant mes compétences, mes pr
 - Pour visualiser le site localement, ouvrir le fichier `index.html` dans un navigateur.
 
 - Pour le déployer avec **GitHub Pages** :
-  1 Aller dans les paramètres du dépôt → **Pages**
-  2 Sélectionner la branche `main` et le dossier `/` (root)
-  3 Cliquer sur “Save”
-  4. Le site sera alors disponible à l'adresse : `https://russellrojas.github.io`
+1. Aller dans les paramètres du dépôt → **Pages**
+2. Sélectionner la branche `main` et le dossier `/` (root)
+3. Cliquer sur “Save”
+4. Le site sera alors disponible à l'adresse : `https://russellrojas.github.io`
+
 
 
 ## Structure du projet
