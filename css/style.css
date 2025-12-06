@@ -9,7 +9,7 @@
 :root {
     --bg-color: #000;
     --font-color: #fff;
-    --accent-color: #ff4900;
+    --accent-color: #24c515;
     --font: "Poppins", sans-serif;
 }
 
@@ -23,7 +23,7 @@ body {
 
 /* Conteneur principal */
 .container {
-    padding: 0 12rem;
+    padding: 0 8rem;
 }
 
 @media screen and (max-width: 992px) {
@@ -49,7 +49,7 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 12rem;
+    padding: 0 8rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -67,48 +67,112 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center; 
 }
 
 .header__info ul li {
     cursor: pointer;
     padding: 1.5rem 0;
     transition: color 0.3s;
+    display: flex;       
+    align-items: center; 
 }
+
 .header__info ul li:hover {
     color: var(--accent-color);
 }
 
-.hireMe__button a {
+
+.btn-linkedin {
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
     background-color: var(--accent-color);
-    color: var(--font-color);
-    font-size: 0.9rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
+    color: white;
     text-decoration: none;
+    font-size: 0.8rem;
+    display: inline-block;   
 }
 
-/* ------- MENU RESPONSIVE (HAMBURGER) ------- */
+.btn-linkedin:hover {
+    background-color: #005582;       
+    transform: translateY(-1px);     /* Efecto sutil */
+}
+
+/* ====== BOUTON MENU BURGER (NOUVEAU) ====== */
+/* Bouton hamburger */
+.hamburger-btn {
+    display: none; /* Caché sur desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--font-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Animation pour transformer en "X" */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ------- MENU RESPONSIVE (NOUVEAU AVEC JS) ------- */
 @media screen and (max-width: 1200px) {
     .navbar {
         padding: 0 2rem;
     }
 
+    /* Afficher le bouton burger sur mobile */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Styles pour le menu mobile */
     .header__info {
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: 0;
+        right: -100%; /* Caché initialement */
         height: 100vh;
         width: 60%;
         background-color: var(--bg-color);
         flex-direction: column;
-        transform: translateX(100%);
-        transition: transform 0.4s ease-in-out;
+        transition: right 0.4s ease-in-out; /* Changé de transform à right */
         padding-top: 5rem;
+        z-index: 999;
     }
 
+    /* Menu ouvert (classe ajoutée par JS) */
+    .header__info.active {
+        right: 0;
+    }
+
+    /* Supprimer l'ancien code checkbox - COMMENTÉ OU SUPPRIMÉ */
+    /*
     .navbar input[type="checkbox"]:checked ~ .header__info {
         transform: translateX(0);
     }
+    */
 
     .header__info ul {
         flex-direction: column;
@@ -132,92 +196,198 @@ body::-webkit-scrollbar-thumb:hover {
     margin: 1rem 0;
 }
 
-.left__content p {
-    color: #ccc;
-    margin-bottom: 1rem;
-}
-
 .home__buttons {
     display: flex;
     gap: 1rem;
 }
-.home__buttons a, .home__buttons button {
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
-}
-.home__buttons a {
-    background-color: var(--accent-color);
-    color: var(--font-color);
-    text-decoration: none;
-}
-.home__buttons button {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
-}
 
-/* FOTO DE PERFIL */
+    .btn {
+        padding: 0.7rem 1.4rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-decoration: none;
+        border: none;
+        transition: 0.2s;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: var(--accent-color);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #02841e;
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 1px solid var(--accent-color);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(0, 119, 181, 0.1);
+        color: var(--accent-color);
+    }
+
+/* PHOTO DE PROFIL */
 .right__content img {
     width: 100%;
     max-width: 300px;
-    height: auto;        /* mantiene proporción */
-    object-fit: cover;   /* recorta si es necesario */
-    border-radius: 50%;  /* opcional: foto circular */
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-/* ------- À PROPOS / ABOUT ME -------- */
+
+/* ------- ABOUT ME -------- */
+
 .about__me {
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px); /* Resta altura del navbar */
     gap: 2rem;
-    padding: 4rem 0;
+    padding: 1rem 0; /* o 0 */
 }
+
 
 .aboutMe__content {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 4rem; 
+    width: 100%;
 }
+
+.aboutMe__info {
+    flex: 1;
+    max-width: 600px;
+}
+
 .aboutMe__info h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
+
 .aboutMe__info p {
     color: #ccc;
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
-/* FOTO SECCIÓN ABOUT */
-.about__me img {
+.aboutMe__info p:last-child {
+    margin-bottom: 0;
+}
+
+.aboutMe__image {
+    flex: 0 0 auto; 
+    width: 40%; 
+}
+
+.aboutMe__image img {
     width: 100%;
-    max-width: 350px;
+    max-width: 500px; 
     height: auto;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;  
 }
 
-/* ------- COMPÉTENCES / SKILLS -------- */
-.knowledge {
-    margin-top: 2rem;
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .aboutMe__content {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .aboutMe__image {
+        width: 80%;
+        max-width: 400px;
+    }
+    
+    .aboutMe__image img {
+        max-width: 100%;
+    }
 }
-.knowledge p {
-    margin-bottom: 0.3rem;
+
+/* ----- COMPÉTENCES / SKILLS ----- */
+
+.skills {
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.progress__bar {
+
+.skills h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
     width: 100%;
-    height: 0.4rem;
-    background-color: #333;
-    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.skill-card i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
-.progress__bar span {
-    display: block;
-    height: 100%;
-    background-color: var(--accent-color);
-    border-radius: 4px;
+
+.skill-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
 }
 
 /* ------- PROJETS / PORTFOLIO -------- */
@@ -296,7 +466,7 @@ footer .social__mediaIcons i:hover {
     color: var(--accent-color);
 }
 
-/* ------- RESPONSIVE GENERAL -------- */
+/* ------- RESPONSIVE GÉNÉRAL -------- */
 @media screen and (max-width: 768px) {
     .home__page {
         flex-direction: column;
@@ -310,3 +480,5 @@ footer .social__mediaIcons i:hover {
         padding: 0 1rem;
     }
 }
+
+

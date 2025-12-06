@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Russell Rojas</title>
+    <title>Portfolio_Russell_Rojas</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/primeflex@^3/primeflex.css">
     <link rel="stylesheet" href="https://unpkg.com/primeflex/themes/saga-blue.css">
@@ -14,90 +14,117 @@
 
 <body>
     <!-- HEADER -->
-    <header class="flex w-full fixed top-0 z-1">
-        <nav class="flex justify-content-between w-full navbar">
-            <span class="logo cursor-pointer" onclick="scrollToSection('home')">
-                <img src="./images/logo_utc.jpg" alt="Logo" width="50" height="50">
-            </span>
-            <input type="checkbox" aria-label="Afficher/masquer le menu hamburger" class="checkbox xl:hidden">
-            <div class="hamburger__lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </div>
-            <div class="header__info flex align-items-center gap-3">
-                <ul class="flex flex-column xl:flex-row list-none">
-                    <li onclick="scrollToSection('home')">Accueil</li>
-                    <li onclick="scrollToSection('about')">À propos</li>
-                    <li onclick="scrollToSection('skills')">Compétences</li>
-                    <li onclick="scrollToSection('portfolio')">Projets</li>
-                    <li onclick="scrollToSection('contact')">Contact</li>
-                </ul>
-                <div class="hireMe__button pt-4">
-                    <a href="mailto:russitorr96@gmail.com" aria-label="Envoyer un email"
-                        class="cursor-pointer no-underline border-round-lg text-xl xl:text-sm">Me contacter</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <span class="logo" onclick="scrollToSection('home')">
+            <img src="./images/logo_utc.jpg" alt="Logo" width="50" height="50">
+        </span>
+  
+        <button class="hamburger-btn" id="menuToggle" aria-label="Ouvrir/fermer le menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <div class="header__info" id="navMenu">
+            <ul>
+                <li onclick="scrollToSection('home')">Accueil</li>
+                <li onclick="scrollToSection('about')">À propos</li>
+                <li onclick="scrollToSection('skills')">Compétences</li>
+                <li onclick="scrollToSection('portfolio')">Projets</li>
+                <li onclick="scrollToSection('contact')">Contact</li>
+                <li>
+                    <a href="https://linkedin.com/in/russellrojas" target="_blank" class="btn-linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
     <!-- HOME PAGE -->
     <div class="container">
-        <section id="home"
-            class="home__page flex align-items-center justify-content-center xl:justify-content-between grid grid-nogutter gap-4">
-            <div class="left__content col-12 xl:col-6">
-                <div class="message__bubble triangle mb-4 md:mb-2">
-                    <div class="message__text p-2 sm:p-3 text-center">
-                        <p>Bonjour, je suis</p>
-                    </div>
+        <section id="home" class="home__page">
+            <div class="left__content">
+                <div>
+                    <p>Bonjour, je suis</p>                
                 </div>
-                <h1 class="text-3xl sm:text-5xl md:text-7xl">Russell Rojas</h1>
-                <p class="text-gray-500">
+                <h1>Russell Rojas</h1>
+                <p>
                     Étudiant en ingénierie informatique | Développement logiciel, web et cybersécurité
                 </p>
-                <div class="home__buttons flex align-items-center gap-2 mt-6">
-                    <a href="./assets/CV_Russell_Rojas.pdf" aria-label="Télécharger le CV"
-                        class="cursor-pointer border-round-lg no-underline" download>Télécharger CV</a>
-                    <button onclick="scrollToSection('portfolio')" aria-label="Voir mes projets"
-                        class="cursor-pointer border-round-lg">Mes projets</button>
+                <br><br>
+                <div class="home__buttons">
+                    <a href="./assets/CV_Russell_Rojas_Stage.pdf" class="btn btn-primary" download>
+                        Télécharger CV
+                    </a>
+                    <button onclick="scrollToSection('portfolio')" class="btn btn-secondary">
+                        Mes projets
+                    </button>
                 </div>
             </div>
-            <div class="right__content col-9 sm:col-6 xl:col-5">
+            <div class="right__content">
                 <img src="./images/me.jpg" alt="Photo de profil" width="100" height="100">
             </div>
         </section>
 
         <!-- ABOUT ME -->
-        <section id="about" class="about__me w-full min-h-screen flex align-items-center">
-            <div class="aboutMe__content min-h-full flex flex-column md:flex-row pt-8 md:pt-0">
-                <div class="aboutMe__info col-12 md:col-6 md:pr-6 pt-0">
-                    <h1 class="text-3xl md:text-5xl">À propos de moi</h1>
-                    <p class="text-gray-500">
-                        Étudiant en ingénierie informatique (BAC+4) à l'UTC, intéressé par le développement logiciel, le web et la cybersécurité. Curieux, motivé et prêt à contribuer à des projets concrets.
-                    </p>
+        <section id="about" class="about__me">
+            <div class="aboutMe__content">
+                <div class="aboutMe__info">
+                    <h1 >À propos de moi</h1>
+                <p>Étudiant en ingénierie informatique à l’Université de Technologie de Compiègne, attiré par la programmation et les systèmes.</p>
+                <p>Je m’intéresse autant au développement web qu’au C/C++, à la cybersécurité et aux architectures bas niveau.</p>
+                <p>J’aime apprendre vite, comprendre comment les choses fonctionnent et créer des projets utiles ou amusants.</p>
+                <p>Originaire de Bolivie et installé en France, je souhaite y construire ma carrière tout en continuant à développer des projets techniques et créatifs.</p>
                 </div>
-                <div class="image col p-0 mt-6 md:mt-0">
-                    <img src="./images/work.jpg" alt="Image à propos" width="100" height="100">
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills" class="skills w-full min-h-screen flex align-items-center">
-            <div class="skills__content col-12">
-                <h1 class="text-3xl md:text-5xl text-center mb-5">Compétences</h1>
-                <div class="knowledge flex flex-column gap-3 mt-5">
-                    <p>C / C++ — Programmation orientée objet, structures de données complexes</p>
-                    <p>Python — Scripts d'automatisation, développement d'outils, analyse de données basique</p>
-                    <p>JavaScript — Applications web interactives</p>
-                    <p>PHP / Node.js — Développement d'APIs REST, architecture back-end</p>
-                    <p>Rust — Notions de programmation système sécurisée</p>
-                    <p>SQL / PostgreSQL / MySQL — Modélisation et requêtes complexes</p>
-                    <p>NoSQL / MongoDB — Modélisation de données non-relationnelles</p>
-                    <p>HTML / CSS / JS — Création d'interfaces web et UI responsive</p>
+                <div class="aboutMe__image">
+                    <img src="./images/computer.jpg" alt="Image à propos" width="100" height="100">
                 </div>
             </div>
         </section>
+<section id="skills" class="skills">
+    <h1>Compétences</h1>
+    
+    <div class="skills-grid">
+        <div class="skill-card">
+            <i class="fab fa-python"></i>
+            <h3>Python</h3>
+            <p>Automatisation, outils, analyse</p>
+        </div>
+        
+        <div class="skill-card">
+            <i class="fab fa-js"></i>
+            <h3>JavaScript</h3>
+            <p>Apps web interactives</p>
+        </div>
+        
+        <div class="skill-card">
+            <i class="fab fa-node-js"></i>
+            <h3>Node.js</h3>
+            <p>APIs REST, backend</p>
+        </div>
+        
+        <div class="skill-card">
+            <i class="fas fa-database"></i>
+            <h3>SQL/NoSQL</h3>
+            <p>PostgreSQL, MongoDB</p>
+        </div>
+        
+        <div class="skill-card">
+            <i class="fas fa-code"></i>
+            <h3>C/C++</h3>
+            <p>Système, bas niveau</p>
+        </div>
+        
+        <div class="skill-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cybersécurité</h3>
+            <p>Notions basiques</p>
+        </div>
+    </div>
+</section>
 
         <!-- PORTFOLIO -->
         <section id="portfolio" class="portfolio min-h-full w-full pb-8 pt-8">
